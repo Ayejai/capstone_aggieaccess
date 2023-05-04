@@ -164,11 +164,27 @@ form p {
         <input type="password" id="password" name="password" required>
         <label for="confirm_password">Confirm Password:</label>
         <input type="password" id="confirm_password" name="confirm_password" required>
+        <input type="checkbox" onclick="conceal()">Show Password
         <input type="submit" name="submit" value="Submit">
         <div>
             <p>Click <a href="login.php">here</a> to login.</p>
         </div>
     </form>
+    <script>
+    // function to show and hide password  
+    function conceal(){
+        var x = document.getElementById("password");
+        var y = document.getElementById("confirm_password");
+        
+        if(x.type === "password" || y.type === "password") {
+            x.type = "text";
+            y.type = "text";
+        } else {
+            x.type = "password";
+            y.type = "password";
+        }
+    }
+</script>
     <?php if (!empty($message)): ?>
         <p><?php echo $message; ?></p>
     <?php endif; ?>
